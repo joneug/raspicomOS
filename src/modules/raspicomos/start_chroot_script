@@ -6,7 +6,9 @@ source /common.sh
 
 apt-get update
 
-tar -C /usr/local -xzf go1.15.2.linux-amd64.tar.gz
+# Install Go
+curl -o go.tar.gz https://golang.org/dl/go1.15.2.linux-armv6l.tar.gz
+tar -C /usr/local -xzf go.tar.gz
 echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile
 
 apt-get clean
