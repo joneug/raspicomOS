@@ -6,10 +6,10 @@ source /common.sh
 
 apt-get update
 
-# Install Go
-curl -o go.tar.gz https://golang.org/dl/go1.15.2.linux-armv6l.tar.gz
-tar -C /usr/local -xzf go.tar.gz
-echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile
+# Install required packages
+apt-get install libopenal-dev libopus-dev libasound2-dev ffmpeg
+
+# TODO: Download and install raspicom binary
 
 apt-get clean
 apt-get autoremove -y
