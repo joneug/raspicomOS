@@ -7,7 +7,7 @@ source /common.sh
 apt-get update
 
 # Install required packages
-apt-get install libopenal-dev libopus-dev libasound2-dev ffmpeg
+apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg
 
 # TODO: Download and install raspicom binary
 
