@@ -6,10 +6,23 @@ source /common.sh
 
 apt-get update
 
-# Install required packages
-apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg
+# Configure soundcard
+echo "dtoverlay=$SOUNDCARD" >> /boot/config.txt
+cat <<EOT >> /etc/asound.conf
+pcm.!default {
+  type plug
+  slave.pcm "hw:0,0"
+}
+ctl.!default {
+  type hw card 0
+}
+EOT
 
-# TODO: Download and install raspicom binary
+# Install required packages
+apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg git vim
+
+# Install mumbli
+go get -u github.com/joneug/mumbli
 
 apt-get clean
 apt-get autoremove -y
