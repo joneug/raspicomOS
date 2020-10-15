@@ -21,6 +21,12 @@ EOT
 # Install required packages
 apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg git vim
 
+# Install Go
+curl -L -o go.tar.gz https://golang.org/dl/go$GO_VERSION.linux-armv6l.tar.gz
+tar -C /usr/local -xzf go.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile
+source /etc/profile
+
 # Install mumbli
 go get -u github.com/joneug/mumbli
 
