@@ -26,6 +26,8 @@ curl -L -o go.tar.gz https://golang.org/dl/go$GO_VERSION.linux-armv6l.tar.gz
 tar -C /usr/local -xzf go.tar.gz
 echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile
 source /etc/profile
+go env
+export GOROOT=/usr/local/go
 
 # Install mumbli
 go get -u github.com/joneug/mumbli
