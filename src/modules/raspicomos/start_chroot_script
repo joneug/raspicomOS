@@ -10,11 +10,9 @@ apt-get update
 echo "dtoverlay=$SOUNDCARD" >> /boot/config.txt
 cat <<EOT >> /etc/asound.conf
 pcm.!default {
-  type plug
-  slave.pcm "hw:0,0"
-}
-ctl.!default {
-  type hw card 0
+  type asym
+  playback.pcm "plughw:0"
+  capture.pcm  "plughw:1"
 }
 EOT
 
