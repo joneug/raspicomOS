@@ -4,12 +4,20 @@ set -e
 
 source /common.sh
 
+# Upgrade
 apt-get update
+apt-get upgrade
 
 # Install required packages
-apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg
+apt-get install -y libopenal-dev libopus-dev libasound2-dev ffmpeg git neovim
+
+# Install go
+wget https://golang.org/dl/go1.16.2.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.16.2.linux-armv6l.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
 
 # TODO: Download and install raspicom binary
 
-apt-get clean
+# Cleanup
 apt-get autoremove -y
+apt-get clean
